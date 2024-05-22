@@ -6,3 +6,4 @@
 # Rendu du TP
 
 - [main.tf](main.tf)
+- [container.tf](container.tf)
