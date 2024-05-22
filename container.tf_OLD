@@ -1,0 +1,53 @@
+resource "proxmox_lxc" "basic" {
+  target_node  = "cfai2024"
+  start = true
+  pool	= "javond"
+  ostemplate   = "local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst"
+  unprivileged = true
+  
+  hostname     = "javond-container1"
+  password     = "AzertyAzerty/42"
+  ssh_public_keys = <<-EOT
+	EOT
+  cpuunits        = 512
+
+  // Terraform will crash without rootfs defined
+  rootfs {
+    storage = "local-lvm"
+    size    = "8G"
+  }
+
+  network {
+    name   = "eth0"
+    bridge = "vmbr0"
+    ip     = "dhcp"
+    ip6     = "auto"
+  }
+}
+resource "proxmox_lxc" "complex" {
+  target_node  = "cfai2024"
+  pool	= "javond"
+  start = true
+  hostname     = "javond-container2"
+  ostemplate   = "local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst"
+  password     = "AzertyAzerty/42"
+  ssh_public_keys = <<-EOT
+	ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBnoxKR7llvIC/zepZokSb2FyqO69BVCiFAWKTULE4bL jerome@djay
+	ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWsfbTbSlxcvxUL1286nwhwrDPJq6bctkxPpZ+TyujHrDwyymvqEjMJNxiwDPRoomPgOcg+YYUYXbfRiLp0VNlUqA5oG9nhlgtiryZrWY6zrywnsDOk6wJvWA/YNbWLlFN14OiKXOH5KJpgYQh1pLIw1TPeR56vU5wv1Ggb0Jr1sg14TJgm2M4lSmQs1CAY8hBLDj/qQcwVNtuYqTXOulwCPZAzhP6ncHM7lHbwJua/3bGQ8IeFzjRGjL0s2XVECYPufCbM0cX1VtmaSQdVmwqXGW2c+rPAq8cFHecfaw/0fdSMeNV4qSl+VqpCGn/XXnpWAYi0OfifddH80ffdAp5 /home/jerome/.ssh/id_rsa
+  EOT
+  unprivileged = true
+  cpuunits        = 256
+
+  // Terraform will crash without rootfs defined
+  rootfs {
+    storage = "local-lvm"
+    size    = "8G"
+  }
+
+  network {
+    name   = "eth0"
+    bridge = "vmbr0"
+    ip     = "dhcp"
+    ip6     = "auto"
+  }
+}

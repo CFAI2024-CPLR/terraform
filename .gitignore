@@ -1,0 +1,6 @@
+terraform.tfstate*
+terraform
+.terraform/
+.terraform.lock.hcl
+.venv/
+passwords.env
