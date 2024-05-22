@@ -28,12 +28,15 @@ variable containers {
                         cpuunits    = number
                         rootfs_size = string
                         memory      = number
+                        ostemplate  = string
                 }))
   default     = [{
-                    name = "default"
-                    cpuunits = 128
+                    name        = "default"
+                    cpuunits    = 128
                     rootfs_size = "1G" 
-                    memory = 64
+                    memory      = 64
+                    ostemplate  = "local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst"
+
                 }]
   description = "description"
 }

@@ -5,6 +5,7 @@ resource "proxmox_lxc" "basic" {
   target_node  = var.target_node
   pool	       = var.pool  
   hostname     = each.value.name
+  ostemplate   = each.value.ostemplate
   password     = var.password
   ssh_public_keys = var.ssh_public_keys
   cpuunits        = each.value.cpuunits
@@ -14,7 +15,7 @@ resource "proxmox_lxc" "basic" {
   rootfs {
     storage = "local-lvm"
     size    = each.value.rootfs_size
-    
+
   }
 
   network {
@@ -25,7 +26,6 @@ resource "proxmox_lxc" "basic" {
   }
 
   start = true
-  ostemplate   = "local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst"
   unprivileged = true
   #<<-EOT
 	#EOT

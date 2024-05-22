@@ -10,11 +10,19 @@ containers:
     cpuunits: 128
     memory: 128
     rootfs_size: 2G
+    ostemplate: "local:vztmpl/debian-12-turnkey-etherpad_18.0-1_amd64.tar.gz"
   - name: javond-container2
     cpuunits: 128
     memory: 128
     rootfs_size: 2G
+    ostemplate: "local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst"
   - name: javond-container3
     cpuunits: 128
     memory: 128
     rootfs_size: 2G
+    ostemplate: "local:vztmpl/rockylinux-9-default_20221109_amd64.tar.xz"
+comment:
+    ostemplate1: "local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst"
+    ostemplate2: "local:vztmpl/debian-12-turnkey-etherpad_18.0-1_amd64.tar.gz"
+    ostemplate3: "local:vztmpl/debian-12-turnkey-suitecrm_18.0-1_amd64.tar.gz"
+    ostemplate4: "local:vztmpl/rockylinux-9-default_20221109_amd64.tar.xz"
