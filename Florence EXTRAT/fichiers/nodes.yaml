@@ -1,0 +1,22 @@
+password: "Chaton666"
+ssh_public_keys: |
+  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILYA9CTS2nfnDUqGRm91z59dVZLov3o20eC2KdZ9bNfz florence@MacBook-Air-de-Florence.local
+target_node: cfai2024
+pool: fextrat
+
+containers:
+ - name: fextrat-container1
+   cpuunits: 128
+   rootfs_size: 2G
+   memory: 128
+   ostemplate: local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst
+ - name: fextrat-container2
+   cpuunits: 128
+   rootfs_size: 2G
+   memory: 128
+   ostemplate: local:vztmpl/debian-12-turnkey-suitecrm_18.0-1_amd64.tar.gz
+ - name: fextrat-container3
+   cpuunits: 128
+   rootfs_size: 2G
+   memory: 128
+   ostemplate: local:vztmpl/rockylinux-9-default_20221109_amd64.tar.xz

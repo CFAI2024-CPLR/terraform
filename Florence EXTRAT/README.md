@@ -4,6 +4,7 @@ Variabiliser la variable 'ostemplate'
 # Rendu du TP
 ## Fichiers modifiés
 - [variables.tf](./fichiers/variables.tf)
+- [nodes.yaml](./fichiers/nodes.yaml)
 - [nodes.auto.tfvars.json](./fichiers/nodes.auto.tfvars.json)
 - [container.tf](./fichiers/container.tf)
 
