@@ -14,6 +14,9 @@ Variabiliser la variable 'ostemplate'
 ### variables.tf
 - ajout de la clé 'ostemplate' à la variable **containers**
 
+### nodes.yaml
+- ajout de la clé 'ostemplate' dans les dictionnaires de la liste **containers**
+
 ### nodes.auto.tfvars.json
 - ajout de la clé 'ostemplate' dans les dictionnaires de la liste **containers**
 
